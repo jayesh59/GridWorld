@@ -1,0 +1,28 @@
+// //for running with docker compose 
+{
+  "name": "working",
+  "dockerComposeFile": "./docker-compose.yml",
+  "service": "working",
+  "workspaceFolder": "/root/lab_git/${localWorkspaceFolderBasename}",
+  // "containerUser": "${USERNAME}",
+  "containerEnv": {
+    // for remote docker x11
+    "HOSTNAME":"en4181937l.scai.dhcp.asu.edu",
+    // "HOSTNAME":"external-ws",
+    // "HOSTNAME": "controlbox59"
+  },
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/root/lab_git/${localWorkspaceFolderBasename},type=bind,consistency=cached",
+  ],
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.black-formatter"
+        ]
+    }
+  }
+// /workspace/isaaclab/_isaac_sim/python.sh ./skill_learning/scripts/skrl/skill_train.py --task skill_learning --mod_name [0/0]
+// rasp --video --seed 1 --num_epochs 40 --episode_length 100 --batch_ratio 4.0 --num_envs 32
+}

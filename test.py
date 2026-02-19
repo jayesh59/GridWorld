@@ -3,8 +3,7 @@ from gridworld import GridWorld
 
 import numpy as np
 
-world=\
-    """
+world = """
     wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
     w  a                                     w
     w                                        w
@@ -47,9 +46,9 @@ world=\
     w                            ggggggggggggw
     wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
     """
-    
-w=GridWorld(world,log=True,blocksize=(17,17),isDRL=True,viewsize=10,random_state=42)
 
-policy=np.random.choice(w.action_values,size=w.state_count)
+w = GridWorld(world, log=True, blocksize=(17, 17), isDRL=True, viewsize=10, random_state=42)
+
+policy = np.random.choice(w.action_values, size=w.state_count)
 
 w.play_as_human(policy)

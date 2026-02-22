@@ -4,9 +4,10 @@ from .block import Block
 
 
 class State(pg.sprite.Sprite):
-    def __init__(self, col, row, color):
+    def __init__(self, col, row, color, guide_flag=False):
         super().__init__()
         self.color = color
+        self.guide_flag = guide_flag
         self.default_state()
         self.rect = self.image.get_rect()
         self.pos = pg.Vector2(col, row)
@@ -15,6 +16,11 @@ class State(pg.sprite.Sprite):
     def default_state(self):
         self.image = pg.Surface(Block.getBlockSize())
         self.image.fill(self.color)
+        if self.guide_flag:
+            fpath = pkg_resources.resource_filename(__name__, "images/guide_marker.png")
+            self.image = pg.transform.scale(
+                pg.image.load(fpath), (int(Block.sizeX // 2.5), int(Block.sizeY // 2.5))
+            )
 
     def set_pixcel_position(self):
         self.rect.x = self.pos.x * Block.sizeX

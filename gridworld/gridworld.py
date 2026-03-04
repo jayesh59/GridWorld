@@ -93,7 +93,7 @@ class GridWorld(gym.Env):
             self.observation_space = Discrete(self.state_count)
         # building environment model
         self.P_sas, self.R_sa = self.build_Model(self.slip)
-        self.reset()
+        # self.reset()
 
     def random_action(self):
         return np.random.choice(self.action_values)

@@ -15,6 +15,14 @@ class Agent(pg.sprite.Sprite):
         self.initial_position = pg.Vector2(col, row)
 
         self.pos = pg.Vector2(col, row)
+
+        self.move_actions = {
+            "down": (0, 1),
+            "up": (0, -1),
+            "right": (1, 0),
+            "left": (-1, 0),
+        }
+
         self.set_pixcel_position()
 
     def set_pixcel_position(self):
